@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Assistant - Epic Edition</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="dice-icon">🎲</span>
+                <span class="brand-text">D&D Assistant</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <button class="nav-btn active" data-view="menu">Home</button>
+                <button class="nav-btn" data-view="player">Player</button>
+                <button class="nav-btn" data-view="dm">DM Tools</button>
+                <button class="nav-btn" data-view="chess">Chess Encounter</button>
+                <button class="nav-btn" data-view="witchlight">Witchlight</button>
+            </div>
+            <a href="../index.html" class="portfolio-home-btn" title="Back to Portfolio">
+                <span class="home-icon">🏠</span>
+                <span class="home-text">Portfolio</span>
+            </a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Persistent Info Panel -->
+    <aside class="info-panel" id="infoPanel">
+        <div class="info-panel-header">
+            <h3 id="infoPanelTitle">Information</h3>
+            <button class="info-panel-close" id="infoPanelClose">&times;</button>
+        </div>
+        <div class="info-panel-content" id="infoPanelContent">
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+        <!-- Home/Menu View -->
+        <section class="view active" id="view-menu">
+            <div class="hero-section">
+                <h1 class="hero-title">D&D Assistant</h1>
+                <p class="hero-subtitle">Epic Edition - Your Complete D&D Companion</p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="feature-card" data-view="player">
+                    <div class="card-icon">⚔️</div>
+                    <h2 class="card-title">Player Character Manager</h2>
+                    <p class="card-description">Track your character's stats, HP, spell slots, and class features</p>
+                    <button class="card-btn">Enter</button>
+                </div>
+                
+                <div class="feature-card" data-view="dm">
+                    <div class="card-icon">🎲</div>
+                    <h2 class="card-title">Dungeon Master Tools</h2>
+                    <p class="card-description">Manage encounters, track enemies, and run epic battles</p>
+                    <button class="card-btn">Enter</button>
+                </div>
+    
+                
+                <div class="feature-card" data-view="chess">
+                    <div class="card-icon">♟️</div>
+                    <h2 class="card-title">The Infinite Gambit</h2>
+                    <p class="card-description">Pre-built chess puzzle encounter with Omnivax</p>
+                    <button class="card-btn">Enter</button>
+                </div>
+                
+                <div class="feature-card" data-view="witchlight">
+                    <div class="card-icon">🎪</div>
+                    <h2 class="card-title">The Wild Beyond the Witchlight</h2>
+                    <p class="card-description">Feywild adventure campaign guide and encounter tracker</p>
+                    <button class="card-btn">Enter</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Player Character Manager View -->
+        <section class="view" id="view-player">
+            <div class="view-header">
+                <h1>Player Character Manager</h1>
+                <button class="btn-secondary" id="editCharacterBtn">Edit Character</button>
+            </div>
+            
+            <div class="character-sheet">
+                <div class="sheet-section">
+                    <div class="character-header">
+                        <h2 id="charName">New Character</h2>
+                        <p id="charClass">Level 1 Adventurer</p>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">AC</div>
+                        <div class="stat-value" id="charAC">16</div>
+                    </div>
+                    <div class="stat-card hp-card">
+                        <div class="stat-label">HP</div>
+                        <div class="stat-value" id="charHP">100 / 100</div>
+                        <div class="hp-controls">
+                            <button class="hp-btn" data-change="-10">-10</button>
+                            <button class="hp-btn" data-change="-5">-5</button>
+                            <button class="hp-btn" data-change="-1">-1</button>
+                            <button class="hp-btn" data-change="1">+1</button>
+                            <button class="hp-btn" data-change="5">+5</button>
+                            <button class="hp-btn" data-change="10">+10</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ability-scores-section">
+                    <h3>Ability Scores</h3>
+                    <div class="ability-grid" id="abilityGrid"></div>
+                </div>
+                
+                <div class="spell-slots-section" id="spellSlotsSection">
+                    <h3>Spell Slots</h3>
+                    <div class="spell-slots-grid" id="spellSlotsGrid"></div>
+                </div>
+                
+                <div class="rest-section">
+                    <button class="btn-primary" id="shortRestBtn">Short Rest</button>
+                    <button class="btn-primary" id="longRestBtn">Long Rest</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- DM Tools View -->
+        <section class="view" id="view-dm">
+            <div class="view-header">
+                <h1>Dungeon Master Tools</h1>
+            </div>
+            
+            <div class="dm-dashboard">
+                <div class="dm-panel">
+                    <h2>Scene Setting</h2>
+                    <textarea class="scene-textarea" id="sceneText" placeholder="Describe the scene..."></textarea>
+                    <button class="btn-primary" id="setSceneBtn">Set Scene</button>
+                </div>
+                
+                <div class="dm-panel">
+                    <h2>Add Enemy</h2>
+                    <div class="enemy-form">
+                        <input type="text" id="enemyName" placeholder="Name" class="form-input">
+                        <input type="number" id="enemyHP" placeholder="HP" class="form-input">
+                        <input type="number" id="enemyAC" placeholder="AC" class="form-input">
+                        <select id="enemyType" class="form-input">
+                            <option>Minion</option>
+                            <option>Elite</option>
+                            <option>Boss</option>
+                        </select>
+                        <button class="btn-primary" id="addEnemyBtn">Add Enemy</button>
+                    </div>
+                </div>
+                
+                <div class="dm-panel enemies-panel">
+                    <h2>Enemies & NPCs</h2>
+                    <div id="enemiesList" class="enemies-list"></div>
+                </div>
+                
+                <div class="dm-panel actions-panel">
+                    <h2>Quick Actions</h2>
+                    <div class="quick-actions-grid" id="quickActionsGrid">
+                        <button class="action-btn" data-action="initiative">🎲 Roll Initiative</button>
+                        <button class="action-btn" data-action="save">💾 Make Saving Throw</button>
+                        <button class="action-btn" data-action="attack">⚔️ Enemy Attacks</button>
+                        <button class="action-btn" data-action="ability">✨ Special Ability</button>
+                        <button class="action-btn" data-action="environment">🌍 Environment Change</button>
+                        <button class="action-btn" data-action="npc">👤 NPC Intervenes</button>
+                    </div>
+                </div>
+                
+                <div class="dm-panel log-panel">
+                    <h2>Encounter Log</h2>
+                    <div id="dmLog" class="log-content"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Chess Encounter View -->
+        <section class="view" id="view-chess">
+            <div class="view-header">
+                <h1>♟️ The Infinite Gambit</h1>
+                <div class="phase-indicator" id="phaseIndicator">
+                    <span class="phase-badge puzzle">PUZZLE PHASE</span>
+                </div>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="scene">🎬 Scene & Information</button>
+                <button class="tab-btn" data-tab="puzzle">♟️ Chess Puzzle</button>
+                <button class="tab-btn" data-tab="omnivax">👁️ Omnivax</button>
+                <button class="tab-btn" data-tab="combat">⚔️ Combat</button>
+            </div>
+            
+            <!-- Tab Contents -->
+            <div class="tab-content active" id="tab-scene">
+                <div class="chess-container scene-layout">
+                    <!-- Physical Description Section -->
+                    <div class="chess-panel scene-panel physical-description">
+                        <h2>🏛️ Physical Description</h2>
+                        <div class="scene-content" id="physicalDescription"></div>
+                    </div>
+                    
+                    <!-- Puzzle & Challenge Section -->
+                    <div class="chess-panel scene-panel puzzle-description">
+                        <h2>♟️ Puzzle & Challenge</h2>
+                        <div class="scene-content" id="puzzleDescription"></div>
+                    </div>
+                    
+                    <!-- Omnivax Reference Card -->
+                    <div class="chess-panel reference-panel">
+                        <h2>📋 Omnivax Quick Reference</h2>
+                        <div class="reference-content" id="omnivaxReference"></div>
+                    </div>
+                    
+                    <!-- Taunts Section -->
+                    <div class="chess-panel taunts-panel">
+                        <h2>💬 Omnivax's Taunts</h2>
+                        <div class="taunts-grid" id="tauntsGrid"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab-puzzle">
+                <div class="chess-container">
+                    <div class="chess-panel puzzle-panel">
+                        <h2>♟️ Chess Puzzle Tracker</h2>
+                        <div class="puzzle-info">
+                            <p><strong>The Puzzle:</strong> Checkmate in 3 moves (White to move)</p>
+                            <p><em>Clue: "The PAWN's Gambit. The rule FORGOTTEN. The end ABSOLUTE."</em></p>
+                            <p class="solution">Solution: En Passant Checkmate</p>
+                        </div>
+                        
+                        <div class="wrong-moves-tracker">
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                                <div class="wrong-moves-counter" id="wrongMovesCounter">Wrong Moves: 0/3</div>
+                                <button class="btn-secondary" id="resetWrongMovesBtn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">🔄 Reset Wrong Moves</button>
+                            </div>
+                            
+                            <!-- Wrong Move 1 -->
+                            <div class="consequence-section">
+                                <button class="consequence-btn wrong-1" data-move="1">❌ WRONG MOVE 1</button>
+                                <div class="consequence-details" id="wrongMove1Details">
+                                    <div class="consequence-narrative">
+                                        <p><strong>Narrative:</strong></p>
+                                        <p class="narrative-text">Omnivax's body shudders with pleasure. Several eyes close in ecstasy.</p>
+                                        <p class="narrative-text">"Yessss... FEED me your FAILURE. Your inadequacy NOURISHES."</p>
+                                        <p class="narrative-text">Her bloated form convulses. With wet, sickening pops, small spherical forms burst from her hide—tiny beholders, each no larger than a melon.</p>
+                                        <p class="narrative-text">"Behold my CHILDREN. They hunger for your THOUGHTS."</p>
+                                    </div>
+                                    <div class="consequence-effects">
+                                        <p><strong>Mechanical Effects:</strong></p>
+                                        <ul>
+                                            <li>Birth 2d4 Gazers (add manually in Combat tab)</li>
+                                            <li>Omnivax gains 4 Eye Rays per turn (instead of 3)</li>
+                                            <li>Psychic Feedback: 2d8 psychic damage to attackers</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Wrong Move 2 -->
+                            <div class="consequence-section">
+                                <button class="consequence-btn wrong-2" data-move="2">❌ WRONG MOVE 2</button>
+                                <div class="consequence-details" id="wrongMove2Details">
+                                    <div class="consequence-narrative">
+                                        <p><strong>Narrative:</strong></p>
+                                        <p class="narrative-text">"AGAIN you FAIL! Your minds are WEAK! Your patterns PREDICTABLE!"</p>
+                                        <p class="narrative-text">The air tears. Reality screams as dimensional rifts open—shimmering wounds in space. From these emerge larger beholders, four-eyed and calculating.</p>
+                                        <p class="narrative-text">"More CHILDREN for the HIVE. And NOW... I show you TRUE POWER."</p>
+                                        <p class="narrative-text">The gravity in the chamber lurches sickeningly. Your stomach drops as "down" becomes uncertain.</p>
+                                    </div>
+                                    <div class="consequence-effects">
+                                        <p><strong>Mechanical Effects:</strong></p>
+                                        <ul>
+                                            <li>Birth 1d4 Spectators (add manually in Combat tab)</li>
+                                            <li>Omnivax gains 5 Eye Rays per turn</li>
+                                            <li>Hive Mind Tactics: Spawn get advantage if another spawn within 5 ft</li>
+                                            <li>Gravitic Mastery UNLOCKED: Gravity-based Lair Actions available</li>
+                                            <li>Psychic Feedback increases to 3d8</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Wrong Move 3 -->
+                            <div class="consequence-section">
+                                <button class="consequence-btn wrong-3" data-move="3">❌ WRONG MOVE 3</button>
+                                <div class="consequence-details" id="wrongMove3Details">
+                                    <div class="consequence-narrative">
+                                        <p><strong>Narrative:</strong></p>
+                                        <p class="narrative-text">"PATHETIC! You are NOT WORTHY! You are mere SUSTENANCE!"</p>
+                                        <p class="narrative-text">The chamber SHAKES. The dimensional fabric SHATTERS. Two massive rifts tear open, and through them float two full-sized beholders—true Eye Tyrants with ten stalks each, antimagic cones blazing.</p>
+                                        <p class="narrative-text">"My HONOR GUARD. They have DEVOURED WORLDS. You... are NOTHING."</p>
+                                        <p class="narrative-text">Omnivax's body pulses with dark energy. Her eyes glow brighter, crackling with power. Her form seems to grow, swelling with stolen psychic energy.</p>
+                                        <p class="narrative-text">"Now... I am UNLIMITED. Witness INFINITE PERSPECTIVE!"</p>
+                                    </div>
+                                    <div class="consequence-effects">
+                                        <p><strong>Mechanical Effects:</strong></p>
+                                        <ul>
+                                            <li>Birth 2 True Beholders (CR 13 each) - Add manually!</li>
+                                            <li><strong>OMNIVAX ENTERS OVERCHARGED STATE:</strong></li>
+                                            <li>  - Can use ALL 10 Eye Rays in one turn (once per combat)</li>
+                                            <li>  - Antimagic Cone can split into TWO 120-ft cones</li>
+                                            <li>  - Swallow Whole recharges on 5-6</li>
+                                            <li>  - AC increases to 22</li>
+                                            <li>  - Psychic Feedback: 4d8</li>
+                                            <li>This is now DEADLY difficulty!</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Alternative Checkmate -->
+                            <div class="consequence-section">
+                                <button class="consequence-btn alt-checkmate" data-move="alt">✨ ALTERNATIVE CHECKMATE</button>
+                                <div class="consequence-details" id="altCheckmateDetails">
+                                    <div class="consequence-narrative">
+                                        <p><strong>Narrative:</strong></p>
+                                        <p class="narrative-text">As the final piece slides into place, there's absolute stillness. Every eye on Omnivax's massive form goes wide. Her mouth opens but no sound emerges.</p>
+                                        <p class="narrative-text">Then, all at once, she SCREAMS. Not in rage, but in confusion, in SHOCK, in something she hasn't felt in millennia: SURPRISE.</p>
+                                        <p class="narrative-text">"IMPOSSIBLE. I... I DID NOT... HOW DID YOU... NO SINGULAR MIND SHOULD..."</p>
+                                        <p class="narrative-text">The chess pieces clatter from her telekinetic grip. Reality ripples outward from her form in visible waves.</p>
+                                        <p class="narrative-text">A new voice—clear, regal, feminine, and deeply amused:</p>
+                                        <p class="narrative-text">A spectral form coalesces near the chessboard—a woman in flowing robes patterned like a chessboard, golden eyes gleaming with mirth. She holds a glowing knight chess piece like a scepter.</p>
+                                        <p class="narrative-text">"Well, well, WELL. It seems my infinite-perspective friend has been outplayed. Again."</p>
+                                        <p class="narrative-text">She looks at the party with a knowing smile.</p>
+                                        <p class="narrative-text">"I am Caïssa, Grandmaster of All Gambits, and I have been waiting a VERY long time for someone to beat this particular puzzle. How DELIGHTFUL to see her humbled."</p>
+                                        <p class="narrative-text">Golden light erupts from the squares, flowing into each party member like warm honey.</p>
+                                        <p class="narrative-text">"Accept my blessing, champions. You've earned it. And as for YOU..."</p>
+                                        <p class="narrative-text">She turns to Omnivax. "...I believe the phrase is 'checkmate, darling.' Shall we see if you fight as well as you boast?"</p>
+                                    </div>
+                                    <div class="consequence-effects">
+                                        <p><strong>Omnivax Suffers:</strong></p>
+                                        <ul>
+                                            <li>Loses 1 Legendary Resistance (now 2/day)</li>
+                                            <li>Takes 30 psychic damage immediately</li>
+                                            <li>AC reduced by 1 (to 19)</li>
+                                            <li>Eye Ray save DC reduced by 1 (to 18)</li>
+                                            <li>Cannot birth minions for 2 rounds</li>
+                                            <li>One random eye permanently blinded (roll d10)</li>
+                                        </ul>
+                                        <p style="margin-top: 1rem;"><strong>Party Receives Caïssa's Blessing:</strong></p>
+                                        <ul>
+                                            <li>Strategic Mind: +2 Initiative, Adv on Int checks, telepathy 120 ft</li>
+                                            <li>Positional Superiority: Bonus action 10 ft move, +2 AC near ally</li>
+                                            <li>En Passant Strike: Once, OA through space = 4d8 force + push 10 ft</li>
+                                            <li>Grandmaster's Resilience: 48 temp HP (lvl 16), resist psychic, adv vs charm/fear</li>
+                                            <li>Tactical Insight: Reaction, grant ally adv save or impose disadv attack</li>
+                                            <li>Checkmate Coordination: 2+ attackers, last gets adv + 3d10 force</li>
+                                            <li>Promotion: Below 25% HP, declare = Haste 3 rounds + spell slot + 40 temp HP</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab-omnivax">
+                <div class="omnivax-layout">
+                    <!-- Left: Stats & Status -->
+                    <div class="omnivax-column omnivax-stats-column">
+                        <div class="chess-panel">
+                            <h2>📊 Base Statistics</h2>
+                            <div id="omnivaxStats" class="omnivax-stats"></div>
+                            
+                            <h3 style="margin-top: 1.5rem; color: var(--accent-gold);">Current Status</h3>
+                            <div id="omnivaxStatus" class="omnivax-status"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Middle: Eye Rays Selection -->
+                    <div class="omnivax-column omnivax-eyes-column">
+                        <div class="chess-panel">
+                            <h2>👁️ Eye Rays</h2>
+                            <div class="eye-rays-info">
+                                <div class="eye-rays-counter">
+                                    <span id="eyeRaysAvailable">0</span> / <span id="eyeRaysMax">3</span> available this turn
+                                </div>
+                                <button class="btn-secondary" id="resetEyeRaysBtn" style="margin-top: 0.5rem;">🔄 Reset Turn</button>
+                            </div>
+                            <div id="eyeRaysList" class="eye-rays-list"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Actions & Abilities -->
+                    <div class="omnivax-column omnivax-actions-column">
+                        <div class="chess-panel">
+                            <h2>⚔️ Actions & Abilities</h2>
+                            <div id="omnivaxActions" class="omnivax-actions"></div>
+                            
+                            <h3 style="margin-top: 1.5rem; color: var(--accent-gold);">Legendary Actions</h3>
+                            <div id="omnivaxLegendary" class="omnivax-legendary"></div>
+                            
+                            <h3 style="margin-top: 1.5rem; color: var(--accent-gold);">Lair Actions</h3>
+                            <div id="omnivaxLair" class="omnivax-lair"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Witchlight Campaign View -->
+        <section class="view" id="view-witchlight">
+            <div class="view-header">
+                <h1>🎪 The Wild Beyond the Witchlight</h1>
+                <p class="view-subtitle">A Feywild Adventure</p>
+            </div>
+            
+            <!-- Chapter Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="chapters">📖 Chapters</button>
+                <button class="tab-btn" data-tab="encounters">✨ Encounters</button>
+                <button class="tab-btn" data-tab="combat">⚔️ Combat Tracker</button>
+            </div>
+            
+            <!-- Chapters Tab -->
+            <div class="tab-content active" id="tab-chapters">
+                <div class="witchlight-container">
+                    <!-- Chapter Selector -->
+                    <div class="witchlight-sidebar">
+                        <h2>Chapters</h2>
+                        <div class="chapter-list" id="chapterList"></div>
+                    </div>
+                    
+                    <!-- Chapter Content -->
+                    <div class="witchlight-main">
+                        <div id="chapterContent" class="chapter-content">
+                            <div class="welcome-message">
+                                <h2>Welcome to The Wild Beyond the Witchlight</h2>
+                                <p>Select a chapter from the sidebar to begin exploring the Feywild adventure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Encounters Tab -->
+            <div class="tab-content" id="tab-encounters">
+                <div class="witchlight-container">
+                    <div class="encounter-selector">
+                        <h2>✨ Chapter Encounters</h2>
+                        <select id="encounterChapterSelect" class="form-input">
+                            <option value="">Select a Chapter</option>
+                            <option value="chapter1">Chapter 1: Witchlight Carnival</option>
+                            <option value="chapter2">Chapter 2: Hither</option>
+                            <option value="chapter3">Chapter 3: Thither</option>
+                            <option value="chapter4">Chapter 4: Yon</option>
+                            <option value="chapter5">Chapter 5: Palace of Heart's Desire</option>
+                        </select>
+                    </div>
+                    
+                    <div id="encounterList" class="encounter-list"></div>
+                </div>
+            </div>
+            
+            <!-- Combat Tracker Tab -->
+            <div class="tab-content" id="tab-combat">
+                <div class="combat-tracker-container">
+                    <div class="combat-header">
+                        <h2>⚔️ Combat Tracker</h2>
+                        <div class="combat-header-actions">
+                            <button class="btn-combat-action" id="startCombatBtn" onclick="startNewCombat()">⚡ Start New Combat</button>
+                            <button class="btn-combat-action danger" id="endCombatBtn" onclick="endCombat()" style="display: none;">🛑 End Combat</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Combat Active State -->
+                    <div id="combatActiveArea" style="display: none;">
+                        <div class="combat-round-info">
+                            <h3>Round <span id="currentRound">1</span></h3>
+                            <button class="btn-next-turn" onclick="nextTurn()">⏭️ Next Turn</button>
+                        </div>
+                        
+                        <div class="initiative-list" id="witchlightInitiativeList">
+                            <!-- Initiative entries will be added here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Add Combatant Panel -->
+                    <div class="add-combatant-panel">
+                        <h3>Add Combatant</h3>
+                        <div class="add-combatant-form">
+                            <div class="form-row">
+                                <label>
+                                    <span>Name:</span>
+                                    <input type="text" id="combatantName" placeholder="Enter name..." />
+                                </label>
+                                <label>
+                                    <span>Initiative:</span>
+                                    <input type="number" id="combatantInitiative" placeholder="Roll..." min="1" max="30" />
+                                </label>
+                                <button class="btn-roll-initiative" onclick="rollInitiative()">🎲</button>
+                            </div>
+                            <div class="form-row">
+                                <label>
+                                    <span>HP:</span>
+                                    <input type="number" id="combatantHP" placeholder="Max HP" min="1" />
+                                </label>
+                                <label>
+                                    <span>AC:</span>
+                                    <input type="number" id="combatantAC" placeholder="AC" min="1" />
+                                </label>
+                                <label style="flex: 2;">
+                                    <span>Type:</span>
+                                    <select id="combatantType">
+                                        <option value="player">Player</option>
+                                        <option value="ally">Ally</option>
+                                        <option value="enemy">Enemy</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <button class="btn-add-combatant" onclick="addCombatant()">➕ Add to Combat</button>
+                        </div>
+                        
+                        <!-- Quick Add from Stat Blocks -->
+                        <div class="quick-add-section">
+                            <h4>📚 Quick Add from Stat Blocks</h4>
+                            <div class="stat-block-selector">
+                                <select id="factionSelect" onchange="loadFactionMembers()">
+                                    <option value="">Select Faction...</option>
+                                </select>
+                                <select id="memberSelect" onchange="displaySelectedStatBlock()">
+                                    <option value="">Select NPC/Creature...</option>
+                                </select>
+                                <button class="btn-quick-add" onclick="quickAddFromStatBlock()">⚡ Quick Add</button>
+                            </div>
+                            <div id="quickStatBlockPreview" class="stat-block-preview"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Combat Instructions (when no combat active) -->
+                    <div id="combatInstructions" class="combat-instructions">
+                        <div class="instruction-card">
+                            <h3>🎯 How to Use Combat Tracker</h3>
+                            <ol>
+                                <li><strong>Start Combat:</strong> Click "Start New Combat" to begin tracking initiative</li>
+                                <li><strong>Add Combatants:</strong> Manually enter combatant details or quick-add from stat blocks</li>
+                                <li><strong>Roll Initiative:</strong> Use the dice button to auto-roll initiative</li>
+                                <li><strong>Track Combat:</strong> Click "Next Turn" to advance through initiative order</li>
+                                <li><strong>Manage HP:</strong> Click on HP values to adjust damage/healing</li>
+                                <li><strong>End Combat:</strong> Click "End Combat" when the encounter is over</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Character Edit Panel (Slides in from side) -->
+    <div class="side-panel" id="characterEditPanel">
+        <div class="side-panel-header">
+            <h2>Edit Character</h2>
+            <button class="side-panel-close" id="characterEditClose">&times;</button>
+        </div>
+        <div class="side-panel-content" id="characterForm"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data/chess-data.js"></script>
+    <script src="data/witchlight-data.js"></script>
+    <script src="data/witchlight-factions.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/dm.js"></script>
+    <script src="js/epic.js"></script>
+    <script src="js/chess.js"></script>
+    <script src="js/witchlight.js"></script>
+</body>
+</html>
+

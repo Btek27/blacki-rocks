@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-theme="dark">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <span class="brand-icon">💼</span>
+                <span class="brand-text">Portfolio</span>
+            </a>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+            </div>
+            <div class="theme-toggle">
+                <span class="theme-icon">☀️</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="themeToggle" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="theme-icon">🌙</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section hero-section active">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="greeting">Hello, I'm</span>
+                        <span class="name">[Your Name]</span>
+                    </h1>
+                    <p class="hero-subtitle">[Your Title/Role]</p>
+                    <p class="hero-description">
+                        [Brief introduction about yourself - Replace this text with your own description]
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn-primary">View My Work</a>
+                        <a href="#about" class="btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="about-paragraph">
+                            [Add your background information here - education, experience, interests, etc.]
+                        </p>
+                        <p class="about-paragraph">
+                            [Add more details about your journey, what drives you, and your goals.]
+                        </p>
+                        <p class="about-paragraph">
+                            [Include any other relevant information you'd like visitors to know.]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Frontend</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <!-- Add more skills as needed -->
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Backend</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <!-- Add more skills as needed -->
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Tools & Others</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <!-- Add more skills as needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-container">
+                    <!-- Project 1: D&D Assistant -->
+                    <div class="project-accordion">
+                        <button class="accordion-header">
+                            <div class="accordion-title-group">
+                                <span class="project-icon">🎲</span>
+                                <h3 class="accordion-title">D&D Assistant - Epic Edition</h3>
+                            </div>
+                            <span class="accordion-arrow">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="project-details">
+                                <div class="project-image">
+                                    <img src="dnd-assistant/carnival_map.jpg" alt="D&D Assistant Preview" onerror="this.style.display='none'">
+                                </div>
+                                <div class="project-info">
+                                    <p class="project-description">
+                                        A comprehensive web-based D&D companion featuring player character management, 
+                                        DM tools for encounter tracking, a chess puzzle encounter with Omnivax, and 
+                                        The Wild Beyond the Witchlight campaign guide. Includes HP tracking, spell slots, 
+                                        enemy management, and detailed campaign information.
+                                    </p>
+                                    <div class="project-tech">
+                                        <h4>Technologies Used:</h4>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">HTML</span>
+                                            <span class="tech-tag">CSS</span>
+                                            <span class="tech-tag">JavaScript</span>
+                                            <span class="tech-tag">Python</span>
+                                        </div>
+                                    </div>
+                                    <div class="project-features">
+                                        <h4>Key Features:</h4>
+                                        <ul>
+                                            <li>Character sheet management with stats and spell slots</li>
+                                            <li>DM encounter tracker with enemy management</li>
+                                            <li>Interactive chess puzzle encounter</li>
+                                            <li>Campaign guide for The Wild Beyond the Witchlight</li>
+                                            <li>Mobile-responsive design</li>
+                                        </ul>
+                                    </div>
+                                    <a href="dnd-assistant/index.html" class="btn-project">View Project →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Hangboard Trainer -->
+                    <div class="project-accordion">
+                        <button class="accordion-header">
+                            <div class="accordion-title-group">
+                                <span class="project-icon">💪</span>
+                                <h3 class="accordion-title">Hangboard Trainer</h3>
+                            </div>
+                            <span class="accordion-arrow">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="project-details">
+                                <div class="project-info">
+                                    <p class="project-description">
+                                        An interactive web application for tracking climbing training workouts on a hangboard. 
+                                        Features multiple workout modes including fixed sets, max reps test, EMOM (Every Minute 
+                                        On the Minute), timed intervals, and structured programs from beginner to athlete level. 
+                                        Includes real-time workout tracking, rest timers, and progress monitoring.
+                                    </p>
+                                    <div class="project-tech">
+                                        <h4>Technologies Used:</h4>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">HTML</span>
+                                            <span class="tech-tag">CSS</span>
+                                            <span class="tech-tag">JavaScript</span>
+                                        </div>
+                                    </div>
+                                    <div class="project-features">
+                                        <h4>Key Features:</h4>
+                                        <ul>
+                                            <li>Multiple workout modes (Fixed Sets, Max Reps, EMOM, Intervals)</li>
+                                            <li>Structured programs for all skill levels</li>
+                                            <li>Real-time workout tracking and timers</li>
+                                            <li>Progress tracking and statistics</li>
+                                            <li>Responsive design for mobile and desktop</li>
+                                        </ul>
+                                    </div>
+                                    <a href="hangboard/index.html" class="btn-project">View Project →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+            <div class="social-links">
+                <!-- Add your social media links here -->
+                <a href="#" class="social-link" title="GitHub">GitHub</a>
+                <a href="#" class="social-link" title="LinkedIn">LinkedIn</a>
+                <a href="#" class="social-link" title="Email">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
