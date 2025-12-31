@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>blacki-rocks</title>
+    <link rel="icon" type="image/png" href="pictures/mountain_logo_orange.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +15,8 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-brand">
-                <span class="brand-icon">💼</span>
-                <span class="brand-text">Portfolio</span>
+                <img src="pictures/mountain_logo_orange.png" alt="blacki-rocks logo" class="brand-icon">
+                <span class="brand-text">blacki-rocks</span>
             </a>
             <div class="nav-menu">
                 <a href="#home" class="nav-link active">Home</a>
@@ -128,7 +129,7 @@
                         <button class="accordion-header">
                             <div class="accordion-title-group">
                                 <span class="project-icon">🎲</span>
-                                <h3 class="accordion-title">D&D Assistant - Epic Edition</h3>
+                                <h3 class="accordion-title">D&D Assistant</h3>
                             </div>
                             <span class="accordion-arrow">▼</span>
                         </button>
@@ -212,6 +213,134 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Project 3: Rememberall -->
+                    <div class="project-accordion">
+                        <button class="accordion-header">
+                            <div class="accordion-title-group">
+                                <span class="project-icon">🔮</span>
+                                <h3 class="accordion-title">The Magical Rememberall</h3>
+                            </div>
+                            <span class="accordion-arrow">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="project-details">
+                                <div class="project-info">
+                                    <p class="project-description">
+                                        The Rememberall is a wearable assistive device inspired by the magical object from Harry 
+                                        Potter, designed to help people with memory problems such as Dementia and ADHD live more 
+                                        independently. At its core, the device allows users to record reminders and play them back 
+                                        whenever needed, making daily tasks more manageable. Built-in sensors continuously monitor 
+                                        for falls, which is especially important for dementia patients who face a greater risk of 
+                                        falling. When a fall is detected, the device automatically triggers an alert system that 
+                                        contacts designated family members or caregivers with the location and time of the incident. 
+                                        The Rememberall also features AI assistant functionality, using speech-to-text and 
+                                        text-to-speech technology to enable natural conversations, help prompt users about their 
+                                        daily routines, and provide cognitive stimulation in an unobtrusive and supportive manner.
+                                    </p>
+                                    <div class="project-tech">
+                                        <h4>Technologies Used:</h4>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">ESP32</span>
+                                            <span class="tech-tag">C++</span>
+                                            <span class="tech-tag">Fusion 360</span>
+                                            <span class="tech-tag">3D Printing</span>
+                                            <span class="tech-tag">Embedded Systems</span>
+                                            <span class="tech-tag">Speech Processing</span>
+                                        </div>
+                                    </div>
+                                    <div class="project-features">
+                                        <h4>Key Features:</h4>
+                                        <ul>
+                                            <li>Record and playback reminders for daily tasks</li>
+                                            <li>Fall detection with emergency alert system</li>
+                                            <li>Simple, intuitive button interface for users with dexterity issues</li>
+                                            <li>Battery-powered for full day use</li>
+                                            <li>Speech-to-text and text-to-speech functionality</li>
+                                            <li>AI assistant capabilities</li>
+                                            <li>Wearable design optimized for accessibility</li>
+                                        </ul>
+                                    </div>
+                                    <div class="project-images-grid" style="margin-top: 2rem;">
+                                        <div class="project-image project-image-bottom-align">
+                                            <img src="pictures/rememberll final design.png" alt="Rememberall Final Design" onerror="this.style.display='none'">
+                                        </div>
+                                        <div class="project-image">
+                                            <img src="pictures/rememberall_lid off.png" alt="Rememberall Internal View" onerror="this.style.display='none'">
+                                        </div>
+                                        <div class="project-image project-image-centered">
+                                            <img src="pictures/rememberall_cad_model.png" alt="Rememberall CAD Model" onerror="this.style.display='none'">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: WALL-EEE -->
+                    <div class="project-accordion">
+                        <button class="accordion-header">
+                            <div class="accordion-title-group">
+                                <span class="project-icon">🤖</span>
+                                <h3 class="accordion-title">WALL-EEE</h3>
+                            </div>
+                            <span class="accordion-arrow">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="project-details">
+                                <div class="project-info">
+                                    <p class="project-description">
+                                        WALL-EEE is an autonomous line-following robot designed to accurately and quickly follow 
+                                        lines drawn on surfaces. The robot uses IR sensors mounted at the front to 
+                                        detect line position and employs two different control approaches: a simple sensor-based 
+                                        method that allows the robot to zig-zag across the line, and an advanced PID control scheme 
+                                        using a weighted average algorithm for precise correction when deviating from the path. The 
+                                        robot also features table edge detection to prevent itself from falling off surfaces as well as a parking sensor LED array. 
+                                        Later upgraded with a Raspberry Pi Zero and camera module, WALL-EEE gained computer vision 
+                                        capabilities using OpenCV, allowing it to recognise symbols and perform different actions 
+                                        based on visual input, making it a truly autonomous robotic system capable of complex 
+                                        decision-making.
+                                    </p>
+                                    <div class="project-tech">
+                                        <h4>Technologies Used:</h4>
+                                        <div class="tech-tags">
+                                            <span class="tech-tag">Arduino</span>
+                                            <span class="tech-tag">Raspberry Pi</span>
+                                            <span class="tech-tag">C++</span>
+                                            <span class="tech-tag">I2C Communication</span>
+                                            <span class="tech-tag">Computer Vision</span>
+                                        </div>
+                                    </div>
+                                    <div class="project-features">
+                                        <h4>Key Features:</h4>
+                                        <ul>
+                                            <li>Autonomous line following using IR sensor arrays</li>
+                                            <li>Dual control methods: simple sensor-based and PID control</li>
+                                            <li>Weighted average algorithm for precise line positioning</li>
+                                            <li>Table edge detection to prevent falls</li>
+                                            <li>Image recognition using OpenCV computer vision library</li>
+                                            <li>Symbol-based command system with multiple actions</li>
+                                            <li>Shape counting and perspective warping capabilities</li>
+                                            <li>I2C communication between Raspberry Pi and Arduino</li>
+                                            <li>HSV and BGR colour detection algorithms</li>
+                                            <li>Real-time visual processing and decision-making</li>
+                                        </ul>
+                                    </div>
+                                    <div class="project-images-grid" style="margin-top: 2rem;">
+                                        <div class="project-image">
+                                            <img src="pictures/wallee_back.jpeg" alt="WALL-EEE Back View" onerror="this.style.display='none'">
+                                        </div>
+                                        <div class="project-image">
+                                            <img src="pictures/wallee_side.jpeg" alt="WALL-EEE Side View" onerror="this.style.display='none'">
+                                        </div>
+                                        <div class="project-image project-image-full-width">
+                                            <img src="pictures/wallee_top.jpeg" alt="WALL-EEE Top View" onerror="this.style.display='none'">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -222,10 +351,9 @@
         <div class="container">
             <p>&copy; 2025 blacki-rocks. All rights reserved.</p>
             <div class="social-links">
-                <!-- Add your social media links here -->
-                <a href="#" class="social-link" title="GitHub">GitHub</a>
-                <a href="#" class="social-link" title="LinkedIn">LinkedIn</a>
-                <a href="#" class="social-link" title="Email">Email</a>
+                <a href="https://github.com/btek27" class="social-link" title="GitHub" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://www.instagram.com/bartek_lacki" class="social-link" title="Instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://www.linkedin.com/in/bartek-lacki" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
         </div>
     </footer>
