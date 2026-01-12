@@ -176,5 +176,12 @@ if (nameElement) {
 }
 */
 
+// ================================
+// MANGO PHOTO TOOLTIP
+// ================================
+// The tooltip is now handled entirely by CSS hover,
+// so no JavaScript is needed for the basic functionality.
+// This section is kept for any future enhancements.
+
 console.log('Portfolio website loaded successfully!');
 

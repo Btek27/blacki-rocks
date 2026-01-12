@@ -501,6 +501,178 @@ input:checked + .toggle-slider:before {
     margin-bottom: 0;
 }
 
+/* Mango Link Orange-Green Glow Effect */
+.mango-link {
+    color: var(--accent-primary);
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+    animation: orangeGreenGlow 4s ease-in-out infinite;
+}
+
+@keyframes orangeGreenGlow {
+    0% {
+        text-shadow: 0 0 8px rgba(255, 140, 97, 0.2),
+                     0 0 16px rgba(255, 140, 97, 0.2),
+                     0 0 24px rgba(255, 140, 97, 0.2);
+        color: #ffb458;
+    }
+    50% {
+        text-shadow: 0 0 8px rgba(111, 186, 125, 0.2),
+                     0 0 16px rgba(111, 186, 125, 0.2),
+                     0 0 24px rgba(111, 186, 125, 0.2);
+        color: #e2f459;
+    }
+    100% {
+        text-shadow: 0 0 8px rgba(255, 140, 97, 0.2),
+                     0 0 16px rgba(255, 140, 97, 0.2),
+                     0 0 24px rgba(255, 140, 97, 0.2);
+        color: #ffb458;
+    }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .mango-link {
+    animation: orangeGreenGlowDark 4s ease-in-out infinite;
+}
+
+@keyframes orangeGreenGlowDark {
+    0% {
+        text-shadow: 0 0 8px rgba(255, 140, 97, 0.2),
+                     0 0 16px rgba(255, 140, 97, 0.2),
+                     0 0 24px rgba(255, 140, 97, 0.2);
+        color: #ffb458;
+    }
+    50% {
+        text-shadow: 0 0 8px rgba(111, 186, 125, 0.2),
+                     0 0 16px rgba(111, 186, 125, 0.2),
+                     0 0 24px rgba(111, 186, 125, 0.2);
+        color: #e2f459;
+    }
+    100% {
+        text-shadow: 0 0 8px rgba(255, 140, 97, 0.2),
+                     0 0 16px rgba(255, 140, 97, 0.2),
+                     0 0 24px rgba(255, 140, 97, 0.2);
+        color: #ffb458;
+    }
+}
+
+.mango-link:hover {
+    animation-duration: 1.5s;
+    filter: brightness(1.2);
+}
+
+/* Border color animation matching text glow */
+@keyframes orangeGreenBorder {
+    0% {
+        border-color: #ffb458;
+    }
+    50% {
+        border-color: #e2f459;
+    }
+    100% {
+        border-color: #ffb458;
+    }
+}
+
+/* Mango Photo Tooltip */
+.mango-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 15px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+.mango-link:hover .mango-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.mango-photo {
+    width: 300px;
+    height: auto;
+    max-width: 90vw;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(255, 140, 97, 0.3);
+    border: 2px solid #ffb458;
+    object-fit: cover;
+    display: block;
+    animation: orangeGreenBorder 4s ease-in-out infinite;
+}
+
+/* Sync border animation speed with text glow on hover */
+.mango-link:hover .mango-tooltip .mango-photo {
+    animation-duration: 1.5s;
+}
+
+/* Tooltip arrow */
+.mango-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: #ffb458;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    animation: orangeGreenBorderArrow 4s ease-in-out infinite;
+}
+
+@keyframes orangeGreenBorderArrow {
+    0% {
+        border-top-color: #ffb458;
+    }
+    50% {
+        border-top-color: #e2f459;
+    }
+    100% {
+        border-top-color: #ffb458;
+    }
+}
+
+.mango-link:hover .mango-tooltip::after {
+    animation-duration: 1.5s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .mango-photo {
+        width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mango-photo {
+        width: 200px;
+    }
+    
+    .mango-tooltip {
+        left: 0;
+        transform: translateX(0) translateY(-10px);
+    }
+    
+    .mango-link:hover .mango-tooltip {
+        transform: translateX(0) translateY(0);
+    }
+    
+    .mango-tooltip::after {
+        left: 20px;
+        transform: translateX(0);
+    }
+}
+
 /* ================================
    SKILLS SECTION
    ================================ */
