@@ -761,6 +761,100 @@ const WITCHLIGHT_FACTIONS = {
                     { name: "Ironbound Pursuit", description: "The redcap moves up to its speed to a creature it can see and kicks with its iron boots. The target must succeed on a DC 14 Dexterity saving throw or take 20 (3d10 + 4) bludgeoning damage and be knocked prone." }
                 ]
             }
+        },
+        {
+            name: "Dust Mephit",
+            type: "Elemental",
+            size: "Small",
+            cr: "1/2 (100 XP)",
+            description: "Dust mephits are mischievous elemental creatures formed from the dust of the Material Plane. They delight in spreading confusion and blinding their enemies with clouds of choking dust. When a dust mephit dies, it explodes in a burst of blinding particles.",
+            statBlock: {
+                size: "Small",
+                type: "Elemental",
+                alignment: "Neutral Evil",
+                ac: "12",
+                hp: "17 (5d6)",
+                speed: "30 ft., fly 30 ft.",
+                stats: { str: "5 (−3)", dex: "14 (+2)", con: "10 (+0)", int: "9 (−1)", wis: "11 (+0)", cha: "10 (+0)" },
+                skills: "Perception +2, Stealth +4",
+                damageVulnerabilities: "fire",
+                damageImmunities: "poison",
+                senses: "darkvision 60 ft., passive Perception 12",
+                languages: "Auran, Terran",
+                cr: "1/2 (100 XP)",
+                proficiency: "+2",
+                traits: [
+                    { name: "Death Burst", description: "When the mephit dies, it explodes in a cloud of dust. Each creature within 5 feet of it must then succeed on a DC 10 Constitution saving throw or be blinded for 1 minute. A blinded creature can repeat the saving throw on each of its turns, ending the effect on itself on a success." },
+                    { name: "Innate Spellcasting (1/Day)", description: "The mephit can innately cast sleep, requiring no material components. Its innate spellcasting ability is Charisma." }
+                ],
+                actions: [
+                    { name: "Claws", description: "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) slashing damage." },
+                    { name: "Blinding Breath (Recharge 6)", description: "The mephit exhales a 15-foot cone of blinding dust. Each creature in that area must succeed on a DC 10 Dexterity saving throw or be blinded for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success." }
+                ]
+            }
+        },
+        {
+            name: "Ice Mephit",
+            type: "Elemental",
+            size: "Small",
+            cr: "1/2 (100 XP)",
+            description: "Ice mephits are elemental creatures formed from the cold of frozen regions. They can blend in with ice formations and unleash freezing breath attacks. When an ice mephit dies, it explodes in a burst of jagged ice shards.",
+            statBlock: {
+                size: "Small",
+                type: "Elemental",
+                alignment: "Neutral Evil",
+                ac: "11",
+                hp: "21 (6d6)",
+                speed: "30 ft., fly 30 ft.",
+                stats: { str: "7 (−2)", dex: "13 (+1)", con: "10 (+0)", int: "9 (−1)", wis: "11 (+0)", cha: "12 (+1)" },
+                skills: "Perception +2, Stealth +3",
+                damageVulnerabilities: "bludgeoning, fire",
+                damageImmunities: "cold, poison",
+                senses: "darkvision 60 ft., passive Perception 12",
+                languages: "Aquan, Auran",
+                cr: "1/2 (100 XP)",
+                proficiency: "+2",
+                traits: [
+                    { name: "Death Burst", description: "When the mephit dies, it explodes in a burst of jagged ice. Each creature within 5 feet of it must make a DC 10 Dexterity saving throw, taking 4 (1d8) slashing damage on a failed save, or half as much damage on a successful one." },
+                    { name: "False Appearance", description: "While the mephit remains motionless, it is indistinguishable from an ordinary shard of ice." },
+                    { name: "Innate Spellcasting (1/Day)", description: "The mephit can innately cast fog cloud, requiring no material components. Its innate spellcasting ability is Charisma." }
+                ],
+                actions: [
+                    { name: "Claws", description: "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) slashing damage plus 2 (1d4) cold damage." },
+                    { name: "Frost Breath (Recharge 6)", description: "The mephit exhales a 15-foot cone of cold air. Each creature in that area must succeed on a DC 10 Dexterity saving throw, taking 5 (2d4) cold damage on a failed save, or half as much damage on a successful one." }
+                ]
+            }
+        },
+        {
+            name: "Magma Mephit",
+            type: "Elemental",
+            size: "Small",
+            cr: "1/2 (100 XP)",
+            description: "Magma mephits are elemental creatures formed from molten rock and fire. They can breathe streams of fire and explode in a burst of lava when destroyed. These creatures are vulnerable to cold but immune to fire.",
+            statBlock: {
+                size: "Small",
+                type: "Elemental",
+                alignment: "Neutral Evil",
+                ac: "11",
+                hp: "22 (5d6 + 5)",
+                speed: "30 ft., fly 30 ft.",
+                stats: { str: "8 (−1)", dex: "12 (+1)", con: "12 (+1)", int: "7 (−2)", wis: "10 (+0)", cha: "10 (+0)" },
+                skills: "Stealth +3",
+                damageVulnerabilities: "cold",
+                damageImmunities: "fire, poison",
+                senses: "darkvision 60 ft., passive Perception 10",
+                languages: "Ignan, Terran",
+                cr: "1/2 (100 XP)",
+                proficiency: "+2",
+                traits: [
+                    { name: "Death Burst", description: "When the mephit dies, it explodes in a burst of lava. Each creature within 5 feet of it must make a DC 11 Dexterity saving throw, taking 7 (2d6) fire damage on a failed save, or half as much damage on a successful one." },
+                    { name: "Innate Spellcasting (1/Day)", description: "The mephit can innately cast heat metal (spell save DC 10), requiring no material components. Its innate spellcasting ability is Charisma." }
+                ],
+                actions: [
+                    { name: "Claws", description: "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) slashing damage plus 2 (1d4) fire damage." },
+                    { name: "Fire Breath (Recharge 6)", description: "The mephit exhales a 15-foot cone of fire. Each creature in that area must make a DC 11 Dexterity saving throw, taking 7 (2d6) fire damage on a failed save, or half as much damage on a successful one." }
+                ]
+            }
         }
     ]
 };
