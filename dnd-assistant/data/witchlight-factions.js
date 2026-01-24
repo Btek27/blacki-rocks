@@ -855,6 +855,37 @@ const WITCHLIGHT_FACTIONS = {
                     { name: "Fire Breath (Recharge 6)", description: "The mephit exhales a 15-foot cone of fire. Each creature in that area must make a DC 11 Dexterity saving throw, taking 7 (2d6) fire damage on a failed save, or half as much damage on a successful one." }
                 ]
             }
+        },
+        {
+            name: "Mud Mephit",
+            type: "Elemental",
+            size: "Small",
+            cr: "1/2 (100 XP)",
+            description: "Mud mephits are slow, unctuous creatures of earth and water. They drone their complaints to all who will listen, and beg incessantly for attention and treasure.",
+            statBlock: {
+                size: "Small",
+                type: "Elemental",
+                alignment: "Neutral Evil",
+                ac: "11",
+                hp: "27 (6d6 + 6)",
+                speed: "20 ft., fly 20 ft.",
+                stats: { str: "8 (−1)", dex: "12 (+1)", con: "12 (+1)", int: "7 (−2)", wis: "10 (+0)", cha: "10 (+0)" },
+                skills: "Stealth +3",
+                damageVulnerabilities: "[poison]",
+                damageImmunities: "poisoned",
+                senses: "darkvision 60 ft., passive Perception 10",
+                languages: "Aquan, Terran",
+                cr: "1/2 (100 XP)",
+                proficiency: "+2",
+                traits: [
+                    { name: "Death Burst", description: "When the mephit dies, it explodes in a burst of sticky mud. Each Medium or smaller creature within 5 feet of it must succeed on a DC 11 Dexterity saving throw or be restrained until the end of the creature's next turn" },
+                    { name: "Innate Spellcasting (1/Day)", description: "The mephit can innately cast heat metal (spell save DC 10), requiring no material components. Its innate spellcasting ability is Charisma." }
+                ],
+                actions: [
+                    { name: "Fists", description: "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage." },
+                    { name: "Mud Breath (Recharge 6)", description: "The mephit belches viscid mud onto one creature within 5 feet of it. If the target is Medium or smaller, it must succeed on a DC 11 Dexterity saving throw or be restrained for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success." }
+                ]
+            }
         }
     ]
 };
