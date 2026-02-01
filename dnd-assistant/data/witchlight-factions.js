@@ -4,7 +4,7 @@ const WITCHLIGHT_FACTIONS = {
     title: "Factions & NPCs",
     icon: "🎭",
     description: "Complete reference for all major factions, their members, and important creatures in the campaign.",
-    
+
     factions: [
         {
             id: "hourglass-coven",
@@ -641,7 +641,7 @@ const WITCHLIGHT_FACTIONS = {
             ]
         }
     ],
-    
+
     creatures: [
         {
             name: "Boggle",
@@ -886,8 +886,169 @@ const WITCHLIGHT_FACTIONS = {
                     { name: "Mud Breath (Recharge 6)", description: "The mephit belches viscid mud onto one creature within 5 feet of it. If the target is Medium or smaller, it must succeed on a DC 11 Dexterity saving throw or be restrained for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success." }
                 ]
             }
+        },
+        {
+            name: "Drowner",
+            type: "Undead",
+            size: "Medium",
+            cr: "1/2 (100 XP)",
+            description: "Drowners are undead creatures that inhabit deep bodies of water and muddy banks. They drag their victims underwater to drown them, adding to their numbers.",
+            statBlock: {
+                size: "Medium",
+                type: "Undead",
+                alignment: "Chaotic Evil",
+                ac: "12",
+                hp: "22 (5d8)",
+                speed: "30 ft., burrow 10 ft., swim 30 ft.",
+                stats: { str: "13 (+1)", dex: "15 (+2)", con: "10 (+0)", int: "5 (-3)", wis: "10 (+0)", cha: "6 (-2)" },
+                skills: "Stealth +4",
+                damageVulnerabilities: "fire, radiant",
+                damageImmunities: "poison",
+                conditionImmunities: "charmed, exhaustion, poisoned",
+                senses: "blindsight 30 ft., darkvision 60 ft., passive Perception 10",
+                languages: "-",
+                cr: "1/2 (100 XP)",
+                proficiency: "+2",
+                traits: [
+                    { name: "Pack Tactics", description: "The drowner has advantage on attack rolls against a creature if at least one of the drowner's allies is within 5 feet of the creature and the ally isn't incapacitated." }
+                ],
+                actions: [
+                    { name: "Claws", description: "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) slashing damage. Instead of dealing damage, the drowner can grapple the target (escape DC 12)." },
+                    { name: "Drag Under", description: "The drowner can drag in deep waters or mud a grappled, incapacitated, paralyzed or stunned target. The target must succeed on a DC 12 Strength saving throw or take 8 (2d6 + 1) bludgeoning damage and be knocked prone and buried in mud. The buried target is restrained and unable to breathe or stand up. A creature can take an action to make a DC 10 Strength check, ending the buried state on a success." }
+                ]
+            }
+        },
+        {
+            name: "Drowned Dead",
+            type: "Undead",
+            size: "Medium",
+            cr: "3 (700 XP)",
+            description: "More powerful than common drowners, the drowned dead are relentless hunters. They can sense blood in the water and exude an aura that causes the living to drown on dry land.",
+            statBlock: {
+                size: "Medium",
+                type: "Undead",
+                alignment: "Chaotic Evil",
+                ac: "15 (natural armor)",
+                hp: "53 (7d8 + 21)",
+                speed: "30 ft., burrow 10 ft., swim 30 ft.",
+                stats: { str: "15 (+2)", dex: "16 (+3)", con: "16 (+3)", int: "8 (-1)", wis: "13 (+1)", cha: "10 (+0)" },
+                skills: "Perception +3, Stealth +5",
+                damageVulnerabilities: "fire, radiant",
+                damageImmunities: "poison",
+                conditionImmunities: "charmed, exhaustion, poisoned",
+                senses: "blindsight 30 ft., darkvision 60 ft., passive Perception 13",
+                languages: "-",
+                cr: "3 (700 XP)",
+                proficiency: "+2",
+                traits: [
+                    { name: "Blood Frenzy", description: "The drowner has advantage on melee attack rolls against any creature that doesn't have all its hit points." },
+                    { name: "Drowning Aura", description: "Any living, breathing creature that starts its turn within 5 feet of the drowner must succeed a DC 13 Constitution saving throw. On a failed save, a creature begins to drown and is restrained. The target must repeat the saving throw at the end of its next turn. On a success, the effect ends on the target. On a failure, the target drops to 0 hit points. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the drowned dead's Drowning Aura for the next 24 hours. Amphibious creatures are not affected." }
+                ],
+                actions: [
+                    { name: "Multiattack", description: "The drowned dead makes two claws attacks." },
+                    { name: "Claws", description: "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) slashing damage. Instead of dealing damage, the drowner can grapple the target (escape DC 13)." }
+                ],
+                reactions: [
+                    { name: "Uncanny Dodge", description: "When an attacker hits the drowned dead with an attack it can use his reaction to half the damage, provided it isn’t blinded and deafened." }
+                ]
+            }
+        },
+        {
+            name: "Nekker",
+            type: "Fey",
+            size: "Small",
+            cr: "1/8 (25 XP)",
+            description: "Nekkers are small, pack-hunting fey creatures that burrow underground. They are deceptively fast and use their numbers to overwhelm opponents.",
+            statBlock: {
+                size: "Small",
+                type: "Fey",
+                alignment: "Chaotic Evil",
+                ac: "11",
+                hp: "7 (2d6)",
+                speed: "40ft., burrow 30ft., climb 30ft.",
+                stats: { str: "8 (-1)", dex: "13 (+1)", con: "10 (+0)", int: "7 (-2)", wis: "8 (-1)", cha: "5 (-3)" },
+                skills: "Stealth +5",
+                senses: "darkvision 120ft., passive Perception 9",
+                languages: "Nekker, Sylvan",
+                cr: "1/8 (25 XP)",
+                proficiency: "+2",
+                traits: [
+                    { name: "Fey Resilience", description: "The nekker has advantage on saving throws against illusions, as well as to resist being charmed or paralyzed and magic can't put the nekker to sleep." },
+                    { name: "Thorn Lurker", description: "The nekker can attempt to hide even when it is only lightly obscured by foliage. Additionally, the nekker can pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard." }
+                ],
+                actions: [
+                    { name: "Claws", description: "Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 3 (1d4 + 1) slashing damage." }
+                ]
+            }
+        },
+        {
+            name: "Nekker Warrior",
+            type: "Fey",
+            size: "Small",
+            cr: "1 (200 XP)",
+            description: "Larger and more vicious than common nekkers, warriors lead the pack. Their claws inflict nasty wounds that bleed profusely.",
+            statBlock: {
+                size: "Small",
+                type: "Fey",
+                alignment: "Chaotic Evil",
+                ac: "13 (natural armor)",
+                hp: "27 (6d6 + 6)",
+                speed: "40ft., burrow 30ft., climb 30ft.",
+                stats: { str: "10 (+0)", dex: "15 (+2)", con: "13 (+1)", int: "7 (-2)", wis: "8 (-1)", cha: "9 (-1)" },
+                skills: "Stealth +6",
+                senses: "darkvision 120ft., passive Perception 9",
+                languages: "Nekker, Sylvan",
+                cr: "1 (200 XP)",
+                proficiency: "+2",
+                traits: [
+                    { name: "Burrowing Devil", description: "If the nekker moves at least 10 feet with it burrowing speed toward a target, the nekker makes its next weapon attack roll with advantage. If the attack hits, the nekker can make another attack with its claws against the same target as a bonus action." },
+                    { name: "Fey Resilience", description: "The nekker has advantage on saving throws against illusions, as well as to resist being charmed or paralyzed and magic can't put the nekker to sleep." },
+                    { name: "Thorn Lurker", description: "The nekker can attempt to hide even when it is only lightly obscured by foliage. Additionally, the nekker can pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard." }
+                ],
+                actions: [
+                    { name: "Claws", description: "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 6 (2d4 + 2) slashing damage. If the target is a creature other than an undead or a construct, it must succeed on a DC 10 Constitution saving throw or lose 2 (1d4) hit points at the start of each of its turns due to internal injuries. Each time the nekker hits the wounded target with this attack, the damage dealt by the wound increases by 2 (1d4). Any creature can take an action to stanch the wound with a successful DC 10 Wisdom (Medicine) check. The wound also closes if the target receives magical healing." }
+                ],
+                reactions: [
+                    { name: "Escape", description: "The nekker adds 3 to its AC against one melee attack that would hit it. To do so, the nekker must see the attacker. If the attack misses, the nekker can move from half its burrowing speed without provoking opportunity attacks." }
+                ]
+            }
+        },
+        {
+            name: "Ghoul Skulker",
+            type: "Undead",
+            size: "Medium",
+            cr: "3 (700 XP)",
+            description: "Ghoul skulkers are cunning and agile undead that ambush their prey from the shadows or from above.",
+            statBlock: {
+                size: "Medium",
+                type: "Undead",
+                alignment: "Chaotic Evil",
+                ac: "15 (natural armor)",
+                hp: "44 (8d8 + 8)",
+                speed: "40 ft.",
+                stats: { str: "16 (+3)", dex: "16 (+3)", con: "13 (+1)", int: "9 (-1)", wis: "10 (+0)", cha: "8 (-1)" },
+                skills: "Athletics +7, Stealth +7",
+                damageImmunities: "poison",
+                conditionImmunities: "charmed, exhaustion, poisoned",
+                senses: "darkvision 60 ft., passive Perception 10",
+                languages: "Common",
+                cr: "3 (700 XP)",
+                proficiency: "+2",
+                traits: [
+                    { name: "Skulker", description: "The ghoul gains an additional action during the first round of combat. Any hit it scores against a surprised creature is a critical hit." },
+                    { name: "Spider Climb", description: "The ghoul can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check." },
+                    { name: "Standing Leap", description: "The ghoul's long jump is up to 30 feet and its high jump is up to 15 feet, with or without a running start." }
+                ],
+                actions: [
+                    { name: "Multiattack", description: "The ghoul makes two melee attacks: one with its claws and one with its bite or its tongue." },
+                    { name: "Bite", description: "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 12 (2d8 + 3) piercing damage." },
+                    { name: "Claws", description: "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) slashing damage. If the target is a creature other than an elf or undead, it must succeed on a DC 10 Constitution saving throw or be paralyzed for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success." },
+                    { name: "Tongue", description: "Melee Weapon Attack: +5 to hit, reach 15 ft., one target. Hit: 7 (2d6) poison damage. If the target is a creature, it must succeed on a DC 13 Constitution saving throw or be poisoned for 1 minute. While poisoned in this way, the target has disadvantage on saving throws to resist being paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success." }
+                ]
+            }
         }
     ]
+
 };
 
 // Explicitly expose to window for compatibility
