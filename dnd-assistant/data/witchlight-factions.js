@@ -1046,6 +1046,106 @@ const WITCHLIGHT_FACTIONS = {
                     { name: "Tongue", description: "Melee Weapon Attack: +5 to hit, reach 15 ft., one target. Hit: 7 (2d6) poison damage. If the target is a creature, it must succeed on a DC 13 Constitution saving throw or be poisoned for 1 minute. While poisoned in this way, the target has disadvantage on saving throws to resist being paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success." }
                 ]
             }
+        },
+        {
+            name: "Alp",
+            type: "Undead (shapechanger)",
+            size: "Medium",
+            cr: "6 (2,300 XP)",
+            description: "Alps are vampiric shapeshifters that torment their victims in their sleep and drain their blood. They are elusive and dangerous ambush predators.",
+            statBlock: {
+                size: "Medium",
+                type: "Undead (shapechanger)",
+                alignment: "Lawful Evil",
+                ac: "18 (natural armor)",
+                hp: "82 (11d8 + 33)",
+                speed: "60ft., climb 60ft.",
+                stats: { str: "16 (+3)", dex: "23 (+6)", con: "16 (+3)", int: "14 (+2)", wis: "10 (+0)", cha: "16 (+3)" },
+                saves: "Dex +9, Cha +6",
+                skills: "Perception +3, Stealth +9",
+                damageResistances: "necrotic; bludgeoning, piercing, and slashing from nonmagical weapons",
+                senses: "darkvision 60ft., passive Perception 13",
+                languages: "Common, Elvish",
+                cr: "6 (2,300 XP)",
+                proficiency: "+3",
+                traits: [
+                    { name: "Innate Spellcasting", description: "The alp's innate spellcasting ability is Charisma (spell save DC 14). The alp can innately cast the following spells, requiring no material components:<br><strong>At will:</strong> dream, gaseous form (self only), hypnotic pattern, sleep (3rd-level version)" },
+                    { name: "Shapechanger", description: "If the alp isn't in sunlight, she can use her action to polymorph into a Medium female humanoid or back into its true form. While in humanoid form, her statistics, are the same. Any equipment she is wearing or carrying isn't transformed. She reverts to her true form if she dies." },
+                    { name: "Elusive", description: "Attack rolls made against the alp have disadvantage unless the alp is incapacitated or restrained. No attack roll has advantage against the alp while she isn’t incapacitated." },
+                    { name: "Vampire Weaknesses", description: "The vampire has the following flaws:<br><strong>Blood Addiction:</strong> If the temptation for blood is strong (an open wound, the smell of blood), the vampire has disadvantage on blood frenzy saving throws. In the presence of the blood of a virgin the vampire fails automatically.<br><strong>Sunlight Hypersensitivity:</strong> The vampire takes 20 radiant damage when it starts its turn in sunlight. While in sunlight, it has disadvantage on attack rolls and ability checks." }
+                ],
+                actions: [
+                    { name: "Multiattack", description: "The alp makes three melee attacks, only one of which can be a bite attack." },
+                    { name: "Claws (Vampire Form Only)", description: "Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 10 (2d4 + 6) slashing damage. Instead of dealing damage, the alp can grapple the target (escape DC 14)." },
+                    { name: "Bite (Vampire Form Only)", description: "Melee Weapon Attack: +9 to hit, reach 5 ft., one creature that is grappled by the alp, incapacitated or restrained. Hit: 9 (1d6 + 6) piercing damage plus 7 (2d6) necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and the alp regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0." }
+                ]
+            }
+        },
+        {
+            name: "Garkain",
+            type: "Undead",
+            size: "Medium",
+            cr: "7 (2,900 XP)",
+            description: "Garkains are horrifying undead abominations that spread disease and terror. They cling to ceilings to drop upon unsuspecting prey.",
+            statBlock: {
+                size: "Medium",
+                type: "Undead",
+                alignment: "Chaotic Evil",
+                ac: "14 (natural armor)",
+                hp: "124 (13d8 + 65)",
+                speed: "30ft.",
+                stats: { str: "20 (+5)", dex: "16 (+3)", con: "20 (+5)", int: "6 (-2)", wis: "10 (+0)", cha: "12 (+1)" },
+                skills: "Perception +3, Stealth +6",
+                damageResistances: "necrotic, poison; bludgeoning, piercing, and slashing from nonmagical weapons",
+                conditionImmunities: "frightened, poisoned",
+                senses: "darkvision 120ft., passive Perception 13",
+                languages: "-",
+                cr: "7 (2,900 XP)",
+                proficiency: "+3",
+                traits: [
+                    { name: "Foul Presence", description: "Any non-undead creature that starts its turn within 10 feet of the garkain must make a DC 15 Constitution saving throw. On a failed save, the creature is poisoned until the end of its next turn. If a creature's saving throw is failed by 5 or more, it's also frightened until the end of its next turn. If a creature's saving throw is successful, the creature is immune to the garkain's Foul Presence for the next 24 hours." },
+                    { name: "Spider Climb", description: "The garkain can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check." },
+                    { name: "Stain", description: "If a humanoid is wounded by the garkain, it must succeed on a DC 15 Constitution saving throw or contract a supernatural disease. The diseased target can't regain hit points, and its hit point maximum decreases by 10 (3d6) for every 24 hours that elapse. If the disease reduces the target's hit point maximum to 0, the target dies. The disease lasts until removed by a lesser restoration spell or other magic." }
+                ],
+                actions: [
+                    { name: "Multiattack", description: "The garkain makes two attacks, only one of which can be a bite attack." },
+                    { name: "Claws", description: "Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 12 (2d6 + 5) slashing damage plus 10 (3d6) necrotic damage. Instead of dealing damage, the garkain can grapple the target (escape DC 15)." },
+                    { name: "Bite", description: "Melee Weapon Attack: +8 to hit, reach 5 ft., one creature that is grappled by the garkain, incapacitated or restrained. Hit: 10 (1d8 + 5) piercing damage plus 10 (3d6) necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and the garkain regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0." }
+                ]
+            }
+        },
+        {
+            name: "Fleder",
+            type: "Undead",
+            size: "Medium",
+            cr: "4 (1,100 XP)",
+            description: "Fleders are lesser vampires that retain their bestial fury but little of their former intelligence. They are known for their powerful leaps and bone-shattering jaws.",
+            statBlock: {
+                size: "Medium",
+                type: "Undead",
+                alignment: "Chaotic Evil",
+                ac: "15 (natural armor)",
+                hp: "77 (9d8 + 36)",
+                speed: "40ft.",
+                stats: { str: "18 (+4)", dex: "18 (+4)", con: "18 (+4)", int: "4 (-3)", wis: "12 (+1)", cha: "10 (+0)" },
+                skills: "Athletics +6, Perception +3, Stealth +6",
+                damageResistances: "necrotic; bludgeoning, piercing, and slashing from nonmagical weapons",
+                senses: "blindsight 60ft., darkvision 120ft., passive Perception 13",
+                languages: "-",
+                cr: "4 (1,100 XP)",
+                proficiency: "+2",
+                traits: [
+                    { name: "Echolocation", description: "The fleder can't use its blindsight while deafened." },
+                    { name: "Fear of Sunlight", description: "While in sunlight, the fleder is frightened and has disadvantage on all saving throws." },
+                    { name: "Leap Attack", description: "If the fleder jumps at least 10 feet as part of its movement next to a creature, then hits it with a claw attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone and be stunned until the end of its next turn. If the target is prone and stunned, the fleder can make one bite attack against it as a bonus action." },
+                    { name: "Spider Climb", description: "The fleder can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check." }
+                ],
+                actions: [
+                    { name: "Multiattack", description: "The fleder makes two attacks, only one of which can be a bite attack." },
+                    { name: "Claws", description: "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage. Instead of dealing damage, the fleder can grapple the target (escape DC 14)." },
+                    { name: "Bite", description: "Melee Weapon Attack: +6 to hit, reach 5 ft., one creature that is grappled by the fleder, incapacitated or restrained. Hit: 8 (1d8 + 4) piercing damage plus 7 (2d6) necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and the fleder regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0." }
+                ]
+            }
         }
     ]
 
