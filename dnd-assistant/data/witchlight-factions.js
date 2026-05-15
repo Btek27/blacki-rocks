@@ -34,11 +34,11 @@ const WITCHLIGHT_FACTIONS = {
                         size: "Medium",
                         type: "Fey (Hag)",
                         alignment: "Neutral Evil",
-                        ac: "15 (natural armor)",
-                        hp: "110 (13d8 + 52)",
+                        ac: "18 (total)    |     15 Natural + 1 (Hand of Vecna) + 2 (Bracers of Defence)",
+                        hp: "110 (13d8 + 52)    |     156 Max",
                         speed: "30 ft., swim 30 ft.",
                         stats: {
-                            str: "22 (+6)",
+                            str: "24 (+7)",
                             dex: "11 (+0)",
                             con: "18 (+4)",
                             int: "16 (+3)",
@@ -54,11 +54,14 @@ const WITCHLIGHT_FACTIONS = {
                         traits: [
                             { name: "Amphibious", description: "Bavlorna can breathe air and water." },
                             { name: "Boon of Immortality", description: "Bavlorna is immune to any effect that would age her, and she can't die from old age." },
-                            { name: "Widdershins Allergy", description: "If a creature within 10 feet of Bavlorna uses at least 10 feet of movement to run in place counterclockwise, Bavlorna is overcome by a fit of sneezing and can't cast spells until the end of her next turn. In addition, any creature Bavlorna has swallowed is immediately expelled and falls prone in an unoccupied space within 5 feet of her." }
+                            { name: "Widdershins Allergy", description: "If a creature within 10 feet of Bavlorna uses at least 10 feet of movement to run in place counterclockwise, Bavlorna is overcome by a fit of sneezing and can't cast spells until the end of her next turn. In addition, any creature Bavlorna has swallowed is immediately expelled and falls prone in an unoccupied space within 5 feet of her." },
+                            { name: "Withering Plants", description: "While attuned to the artifact, you deal 1d6 necrotic damage to any plant you touch that isn't a creature. She can't eat plant matter and gets really annoyed when offered that" },
+                            { name: "Cold touch", description: "Any melee spell attack you make with the hand, and any melee weapon attack made with a weapon held by it, deals an extra 2d8 cold damage on a hit." },
+                            { name: "Hand of Vecna", desctiption: "The hand has 8 charges. You can use an action and expend 1 or more charges to cast one of the following spells (save DC 18) from it: Finger of Death (5 charges), Sleep (1 charge), Slow (2 charges), or Teleport (3 charges). The hand regains 1d4 + 4 expended charges daily at dawn. Each time you cast a spell from the hand, it casts the Suggestion spell on you (save DC 18), demanding that you commit an evil act. The hand might have a specific act in mind or leave it up to you." }
                         ],
                         actions: [
                             { name: "Multiattack", description: "Bavlorna makes one Bite attack and one Withering Ray attack." },
-                            { name: "Bite", description: "Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 13 (2d6 + 6) piercing damage, and the target is grappled (escape DC 16) if it is a Medium or smaller creature. Until the grapple ends, the target is restrained, and Bavlorna can't use her Bite attack on another target." },
+                            { name: "Bite", description: "Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 14 (2d6 + 7) piercing damage, and the target is grappled (escape DC 17) if it is a Medium or smaller creature. Until the grapple ends, the target is restrained, and Bavlorna can't use her Bite attack on another target." },
                             { name: "Withering Ray", description: "Ranged Spell Attack: +6 to hit, range 60 ft., one target. Hit: 17 (4d6 + 3) necrotic damage." },
                             { name: "Create Lornlings (Recharge 5–6)", description: "Bavlorna creates one or two 1-foot-tall duplicates of herself, called lornlings (use the quickling stat block). Each lornling appears in an unoccupied space within 5 feet of Bavlorna, obeys her commands, and takes its turn immediately after hers. A lornling lasts for 1 hour, until it or Bavlorna dies, or until Bavlorna dismisses it as an action. Bavlorna can have no more than eight lornlings in existence at a time." },
                             { name: "Spellcasting", description: "Bavlorna casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save DC 14):<br><strong>At will:</strong> detect magic<br><strong>2/day each:</strong> create food and water, polymorph, remove curse<br><strong>1/day:</strong> plane shift (self only)" }
