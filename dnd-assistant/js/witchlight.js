@@ -29,6 +29,9 @@ function initWitchlightView() {
     // Initialize combat tracker
     initCombatTracker();
     
+    // Load creatures into their reference tab
+    initCreaturesTab();
+    
     // Encounter chapter selector
     const encounterChapterSelect = document.getElementById('encounterChapterSelect');
     if (encounterChapterSelect) {
@@ -1910,6 +1913,38 @@ function initCombatTracker() {
     }
 }
 
+// Initialize Creatures reference tab
+function initCreaturesTab() {
+    if (!window.WITCHLIGHT_FACTIONS) return;
+    
+    const creatureSelect = document.getElementById('creatureSelect');
+    if (!creatureSelect) return;
+    
+    let html = '<option value="">Select Creature or NPC...</option>';
+    
+    if (WITCHLIGHT_FACTIONS.factions) {
+        WITCHLIGHT_FACTIONS.factions.forEach((faction, factionIndex) => {
+            if (!faction.members || faction.members.length === 0) return;
+            
+            html += `<optgroup label="${faction.name}">`;
+            faction.members.forEach((member, memberIndex) => {
+                html += `<option value="member-${factionIndex}-${memberIndex}">${member.name} (CR ${member.cr})</option>`;
+            });
+            html += '</optgroup>';
+        });
+    }
+    
+    if (WITCHLIGHT_FACTIONS.creatures && WITCHLIGHT_FACTIONS.creatures.length > 0) {
+        html += '<optgroup label="Creatures">';
+        WITCHLIGHT_FACTIONS.creatures.forEach((creature, index) => {
+            html += `<option value="creature-${index}">${creature.name} (CR ${creature.cr})</option>`;
+        });
+        html += '</optgroup>';
+    }
+    
+    creatureSelect.innerHTML = html;
+}
+
 // Load faction members when faction is selected
 function loadFactionMembers() {
     const factionSelect = document.getElementById('factionSelect');
@@ -1941,10 +1976,9 @@ function loadFactionMembers() {
 }
 
 // Display selected stat block preview
-function displaySelectedStatBlock() {
-    const factionSelect = document.getElementById('factionSelect');
-    const memberSelect = document.getElementById('memberSelect');
-    const preview = document.getElementById('quickStatBlockPreview');
+function displaySelectedStatBlock(selectId = 'memberSelect', previewId = 'quickStatBlockPreview', showFullStatBlock = false) {
+    const memberSelect = document.getElementById(selectId);
+    const preview = document.getElementById(previewId);
     
     if (!memberSelect || !preview) return;
     
@@ -1976,7 +2010,12 @@ function displaySelectedStatBlock() {
     }
     
     if (statBlock) {
-        preview.innerHTML = `
+        preview.innerHTML = showFullStatBlock ? `
+            <div class="creature-detail">
+                <h3>${name}</h3>
+                ${renderStatBlockFull(statBlock)}
+            </div>
+        ` : `
             <div class="stat-block-quick-preview">
                 <h4>${name}</h4>
                 <p><strong>HP:</strong> ${statBlock.hp} | <strong>AC:</strong> ${statBlock.ac}</p>
@@ -2405,6 +2444,10 @@ window.startCombatFromEncounter = startCombatFromEncounter;
 // Initialize combat tracker when witchlight view loads
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
+        if (document.getElementById('creatureSelect')) {
+            initCreaturesTab();
+        }
+        
         if (document.getElementById('factionSelect')) {
             initCombatTracker();
         }

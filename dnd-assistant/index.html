@@ -429,6 +429,7 @@
             <div class="tab-navigation">
                 <button class="tab-btn active" data-tab="chapters">📖 Chapters</button>
                 <button class="tab-btn" data-tab="encounters">✨ Encounters</button>
+                <button class="tab-btn" data-tab="creatures">🐉 Creatures</button>
                 <button class="tab-btn" data-tab="combat">⚔️ Combat Tracker</button>
             </div>
             
@@ -469,6 +470,24 @@
                     </div>
                     
                     <div id="encounterList" class="encounter-list"></div>
+                </div>
+            </div>
+            
+            <!-- Creatures Tab -->
+            <div class="tab-content" id="tab-creatures">
+                <div class="witchlight-container">
+                    <div class="witchlight-main">
+                        <div class="content-section creature-section">
+                            <h2>🐉 Creatures & Factions</h2>
+                            <p>Select a creature or faction member to expand its stat block.</p>
+                            <div class="stat-block-selector">
+                                <select id="creatureSelect" class="form-input" onchange="displaySelectedStatBlock('creatureSelect', 'creatureStatBlockPreview', true)">
+                                    <option value="">Select Creature or NPC...</option>
+                                </select>
+                            </div>
+                            <div id="creatureStatBlockPreview" class="stat-block-preview"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
